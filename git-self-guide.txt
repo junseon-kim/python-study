@@ -1,0 +1,35 @@
+2019.12.22
+
+git clone 깃허브 복제할 주소
+: 내가 만든 repository를 복사한다.
+
+git init
+: 현재 폴더를 git 로컬 저장소로 사용한다.
+git status
+: 현 상태를 알려준다.
+
+git add 파일이름.확장자
+: commit할 목록에 올린다.
+
+git reset HEAD 파일이름.확장자
+: add한 파일을 add하기 전으로 돌린다. 파일 이름이
+없다면 add한 모든 것을 지운다.
+
+git commit -m "커밋 메시지"
+: add한 파일을 커밋한다.
+
+git reset --soft HEAD^
+: 커밋을 취소하고 해당 파일들은 staged 상태로 워킹
+디렉터리에 보존
+
+git reset --mixed HEAD^ : commit취소, unstaged 보존
+git reset HEAD^ : 위와 동일
+git reset HEAD~2 : 마지막 2개의 commit 취소, unstaged
+보존
+
+git reset --hard HEAD^
+: commit 취소하고 해당 파일들은 unstaged 상태로 워킹
+디렉터리에서 삭제.
+
+add > staged
+not add > unstaged
