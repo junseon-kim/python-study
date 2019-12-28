@@ -1,0 +1,46 @@
+1. 가상환경 실행하기
+  가상환경(venv)가 설치된 폴더의 스크립트 폴더의 activate.bat 실행.
+ ex) Desktop\Python study\venv\Scripts\activate.bat
+ 가상환경을 끄려면
+ >deactivate 입력.
+
+2. 가상환경을 만들기
+ 2-1 가상환경을 만들고 싶은 곳으로 가서
+ python -m venv 가상환경이름
+ 
+ 2-2 가상환경 실행
+  가상환경이름\Scripts\activate.bat
+  가상환경 끄기 : >deactivate
+
+3. 장고 깔기
+ 가상환경 실행 후
+ pip install Django==버전(ex Django==3.0.1)
+
+장고는 가상환경에서 돌아간다.
+
+4. 장고 프로젝트 만들기
+ 가상환경 실행 후
+ django-admin startproject 프로젝트이름
+
+5. 서버 실행하기
+ 프로젝트 파일로 이동 후
+ py manage.py runserver
+ 서버가 실행되는 곳 : http://127.0.0.1:8000
+
+6. app과 project.
+  app은 프로젝트 안에서 특정한 기능을 수행, project는 그것을 묶음.
+ app은 project안 어디든 만들 수 있다.
+
+7. app 만들기
+ py manage.py startapp 앱이름
+
+잠시 몽고디비
+ 1. 내 몽고디비 주소
+ "mongodb+srv://rhrhrkfl:<password>@junseonfirst-o8wgi.gcp.mongodb.net/test?retryWrites=true&w=majority")
+ 2. pip install pymongo
+ 3. pip install pymongo[srv] 끝
+ 4. 몽고디비를 사용하려면 pip install djongo
+	djongo 종고
+
+8. djongo를 사용하려면 django를 2.2.8 버전을 사용하란다.
+그렇다. 나는 django 3.0.1 버전을 사용하고 있어서 안돼는 것이었다.
