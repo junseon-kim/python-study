@@ -1,0 +1,76 @@
+			2019.12.29
+
+ django-admin startproject 프로젝트이름
+  : django 프로젝트를 생성한다.
+
+ djagno-admin manage.py startapp 앱이름
+  : django 앱을 생성한다.
+
+ py manage.py runserver
+  : 서버를 구동한다. 종료하려면 ctrl+C
+
+파이썬 파일에서
+
+ include('URLconf가 있는 py파일')
+  : URLconf가 있는 py파일로 안내한다.
+
+ path('route', view, kwargs, name)
+ ex) path('polls/', viwes.index, include('polls.urls'), name='index')
+
+  1. route : URL패턴을 가진 문자열. 패턴은 GET이나 POST의 매개 변수들,
+	    혹은 도메인 이름을 검색하지 않는다.
+		ex) www.example.com/ << 무시 ?page=3 << 무시
+  2. view : views의 특정 함수를 호출.
+  3. kwargs : 임의의 키워드 인수들은 목표한 view에 사전형으로 전달됨
+  4. name : URL에 이름을 지으면, 템플릿을 포함하여 django 어디에서나
+	   명확하게 참조할 수 있다. 이 기능은 강력하고, 이것을 이용
+	   하여 단 하나의 파일을 수정하여 project내의 모든 URL패턴을
+	   바꿀 수 있다.
+
+ settings.py의 DATABASES에서,
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo', 		몽고db의 경우.
+        'NAME': 'junseonfirst', 	dc의 이름이 아닌 내 계정이름.
+    }
+}
+
+모델의 활성화
+
+ 현재 project에 만든 app이 설치되어 있음을 알리기
+  settings.py에 '앱이름.apps.앱이름(첫글자대문자)Config'를 추가해준다.
+
+ py manage.py makemigrations 앱이름
+   을 하면 내가 모델을 변경했다는 것과 이 변경사항을 migration으로
+  저장시키고 싶다는 것을 django에게 알려준다.
+  
+ py manage.py migrate
+   데이터베이스에 모델과 관련된 테이블 생성. 아직 적용되지 않은 모든
+  migration 들을 수집하여 이를 실행한다. django는 migration의 적용
+  여부를 기록하는 django_migrations 테이블이 있다.
+
+ 1. models.py 에서 모델을 변경.
+ 2. py manage.py makemigrations 를 통해 변경사항에 대한 migration을
+   만든다.
+ 3. py manage.py migrate 명령을 통해 변경사항을 데이터베이스에 적용
+   한다.
+
+API??
+
+관리자 생성하기
+ python manage.py createsuperuser
+
+ 객체가 관리 인터페이스를 가지고 있다는 것을 admin에게 알려주기
+  ==> 관리하고 싶다.
+  앱/admin.py 에
+  from .models import 객체이름
+  
+  admin.site.register(객체이름)
+
+ 한국시간(UTC+9) 를 사용하기 위해 django의 settings.py에
+ TIME_ZONE = 'Asia/Seoul'
+ 을 넣는다.
+
+ 한국어는 LANGUAGE_CODE = 'ko-kr'
+
+2019.12.29 오후 10:49분 튜토리얼 part.2까지 함.
