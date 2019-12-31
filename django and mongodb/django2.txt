@@ -1,0 +1,40 @@
+2019.12.31
+ django는 view를 URL로부터 얻기 위해 'URLconfs'라고 부르는 것을
+사용한다. URLconf는 URL패턴을 views에 연결한다.
+
+ ("you're looking at question %s." %question_id)
+
+만들 것은
+1. 질문 색인 페이지 - 최근의 질문 표시
+2. 질문 세부 페이지 - 질문 내용과, 투표할 수 있는 서식 표시
+3. 질문 결과 페이지 - 특정 질문에 대한 결과를 표시
+4. 투표 기능 - 특정 질문에 대해 특정 선택을 할 수 있는 투표 기능을
+	      제공
+
+ view를 추가하여
+def detail(request, question_id):
+    return HttpResponse("You're looking at question %s." % question_id)
+
+def results(request, question_id):
+    response = "You're looking at the results of question %s."
+    return HttpResponse(response % question_id)
+
+def vote(request, question_id):
+    return HttpResponse("You're voting on question %s." % question_id)
+
+ 세부, 결과, 투표 기능을 만든다.
+ 이 기능을 사용가능하게 만들기 위해 URL패턴을 수정한다.
+ route에 정수형은 '<int:question_id>' 로 표현한다.
+ url은 이것이 표현할 view method를 적는다.
+  :question_id 는 일치되는 패턴을 구별하기 위해 정의한 이름.
+  int: 부분은 어느 패턴이 해당 URL 경로에 일치되어야 하는지를 결정하는
+ 컨버터이다.
+ django는 URL에 html을 붙일 필요가 없다. 필요하면 붙일 수 있다.
+ ex) path('polls/latest.html', view.index),
+  view는 HttpResponse 객체를 반환하거나, Http404같은 예외를 발생시키게
+ 해야한다. 혹은 데이터베이스를 읽거나 템플릿 시스템을 사용하거나
+ PDF, XML, ZIP파일을 만들 수 있다.
+  그리고 만든 것을 HttpResponse로 반환하거나 Http404를 반환.
+
+ templates.
+2019.12.31 집중이 너무 안된다. 늦었으니 내일 하자.
