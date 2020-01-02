@@ -1,0 +1,21 @@
+데이터 조회 : GET
+데이터 생성 : POST
+데이터 수정 : PUT
+데이터 삭제 : DELETE
+pip install
+djongo
+dnspython
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'junseonfirst',
+        'HOST' : 'mongodb+srv://rhrhrkfl:rlawns%2425@junseonfirst-o8wgi.gcp.mongodb.net/test?retryWrites=true&w=majority',
+        'USER' : 'rhrhrkfl',
+        'PASSWORD': 'rlawns$25',
+#   mongodb+srv://rhrhrkfl:rlawns%2425@junseonfirst-o8wgi.gcp.mongodb.net/test?retryWrites=true&w=majority
+    }
+}
+
+migrate 앱이름 0001
+migrate
