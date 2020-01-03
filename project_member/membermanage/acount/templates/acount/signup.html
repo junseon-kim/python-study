@@ -1,0 +1,16 @@
+<div>
+    <form action="{% url 'acount:signup' %}" method="POST">
+        {% csrf_token %}
+            USERNAME:
+            <br><input name="username" type="text"><br>
+            ID:
+            <br><input name="identity" type="text"><br>
+            PASSWORD:
+            <br><input name="password" type="password"><br>
+            CONFIRM PASSWORD:
+            <br><input name="confirm_password" type="password"><br>
+            EMAIL
+            <br><input name="user_email" type="email"><br>
+            <input type="submit" value="sign up">
+    </form>
+</div>
