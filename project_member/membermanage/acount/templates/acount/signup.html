@@ -1,4 +1,11 @@
-<div>
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+</head>
+<h1>SIGN UP!</h1>
+<div class="floatcenter">
     <form action="{% url 'acount:signup' %}" method="POST">
         {% csrf_token %}
             USERNAME:
@@ -14,3 +21,16 @@
             <input type="submit" value="sign up">
     </form>
 </div>
+<br>
+{{ issuccess }}
+<br>
+{% if messages %}
+    <script type="text/javascript">
+        alert("회원가입이 불가능 합니다.");
+    </script>
+    {% for msg in messages %}
+        {{ msg.tags }}
+        {{ msg.message }}
+    {% endfor %}
+{% endif %}
+</html>
