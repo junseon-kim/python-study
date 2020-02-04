@@ -1,0 +1,19 @@
+파이썬을 배우며 사용하는 함수를 적어두는 곳이다.(2020.2.4.)
+
+기본
+    print() 출력
+    input() 입력
+
+반복형 객체
+    split()
+
+    aa = 복사할 것.copy()
+
+    import copy
+    aa = copy.deepcopy(복사할 것) : 중첩 리스트 혹은 딕셔너리 등
+
+
+
+dict
+    aa = {key: value for key,value in dict.fromkeys(키리스트).items() if 조건식}
+    clear() : 딕셔너리의 모든 내용을 삭제하고 빈 딕셔너리로 만든다.
