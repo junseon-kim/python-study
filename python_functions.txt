@@ -17,3 +17,17 @@
 dict
     aa = {key: value for key,value in dict.fromkeys(키리스트).items() if 조건식}
     clear() : 딕셔너리의 모든 내용을 삭제하고 빈 딕셔너리로 만든다.
+
+set
+    set.union(집합1, 집합2)
+    set.intersection(a, b)
+    set.difference(a, b)
+    set.symmetric_difference(a,b)
+    집합.update(집합) ex - abc.update({1, 2, 3, 4})
+    .add(추가할 요소)
+    .remove(제거할 요소) : 없는 것을 제거하면 오류
+    .discard(제거할 요소) : 없는 것을 제거해도 오류 x
+    .pop() : 임의의 요소를 제거
+    .clear() : 모든 요소를 제거
+    len(집합) : 길이
+    복사 결과.copy(복사할 집합)
