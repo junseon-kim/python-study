@@ -12,7 +12,8 @@
     import copy
     aa = copy.deepcopy(복사할 것) : 중첩 리스트 혹은 딕셔너리 등
 
-
+    max(객체) : 객체 중 제일 높은 값을 반환.
+    min(객체) : 객체 중 제일 낮은 값을 반환.
 
 dict
     aa = {key: value for key,value in dict.fromkeys(키리스트).items() if 조건식}
