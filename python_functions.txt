@@ -224,5 +224,65 @@ set
         코루틴객체.throw(예외이름, '에러메시지') : 코루틴 안에 예외를 발생시키고 만약 yield가 코
                                                 루틴 안에 있다면 값을 반환받음.
 
+데코레이터
+    매개변수가 없는 데코레이터
+        def 데코레이터(func):  데코레이팅 할 함수를 받음.
+            def wrapper(매개변수):  이 함수의 형식으로 받은 함수를 데코레이트.
+                추가할 코드
+                result = func(매개변수)
+                추가할 코드
+                return result  : 대충 반환할 것을 반환하면 된다.
+            return wrapper   장식이 끝난 함수를 반환.
 
+    매개변수가 있는 데코레이터
+    매개변수가 있는 데코레이터는 바깥에 함수를 하나 더 만든다.
+        def 바깥데코(매개변수1):
+            def 안쪽데코(func):
+                def wrapper(매개변수2):
+                    추가할 코드
+                    res = func(매개변수2)
+                    매개변수1을 이용한 코드
+                    추가할 코드
+                    return res 대충 결과
+                return wrapper
+            return 안쪽데코
 
+    데코레이터 사용하기
+    만들고자 하는 함수나 메서드 위에 @데코레이터이름 의 형식을 사용.
+    클래스의 메서드에 사용할 데코레이터를 만들 때에는
+    def wrapper(self, *args): 처럼 self를 반드시 넣어주자.
+
+    여러개의 데코레이터를 사용하여 원래 함수의 이름이 안나올 때
+        import functools
+
+        wrapper 위에 @functools.wraps(func)를 사용하자.
+
+        def deco(func):
+            @functools.wraps(func)
+            def wrapper(*args):
+                코드
+                return 대충 반환
+            return wrapper
+
+    클래스로 데코레이터 만들기
+    1. 매개변수가 없는 데코레이터
+        class 데코레이터:
+            def __init__(self, func):
+                self.func = func  : 함수를 받아 속성으로 저장한다.
+
+            def __call__(self, *args):
+                기존의 데코레이터와 같은 코드들
+                return 반환할 결과
+
+                # return wrapper 같은 것은 쓰지 않아도 된다. 사용도 @데코레이터
+    2. 매개변수가 있는 데코레이터
+        class 데코레이터:
+            def __init__(self, 매개변수):
+                self.매개변수 = 매개변수
+
+            def __call__(self, func):  __call__ 에서 호출할 함수를 받는다.
+                def wrapper(*args):
+                    기존 데코레이터
+                    return 반환할 결과
+                return wrapper  : 클래스 데코레이터도 마찬가지로 하나의 함수를 더 넣는다.
+                그리고 그 만든 함수를 반환한다.
