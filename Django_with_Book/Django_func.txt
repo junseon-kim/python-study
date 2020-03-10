@@ -1,0 +1,55 @@
+Pandas : 출처 - https://doorbw.tistory.com/172
+    import pandas
+    Pandas 자료구조 : Series, Data Frame
+
+    Series
+        obj = pandas.Series(리스트)
+        0   값1
+        1   값2
+        2   값3
+        .   .
+        .   .
+        .   .
+        dtype: int64
+
+        Series의 값만 확인하기
+        obj.values
+
+        인덱스만 확인하기
+        obj.index
+
+        Series의 자료형 확인하기
+        obj.dtype
+
+        인덱스 바꾸기
+        obj2 = pandas.Series([4, 7, -5, 3], index = ['d', 'b', 'a', 'c'])
+        d   4
+        b   7
+        a   -5
+        c   3
+        dtype: int64
+
+        딕셔너리를 pandas의 Series로 바꿀 수 있다.
+        sdata = {키1: 값1, 키2: 값2, 키3: 값3}
+        obj3 = pandas.Series(sdata)
+        인덱스는 키, 내용은 값으로 바뀐다.
+
+        obj2.name = 'Salary'
+        obj2.index.name = "Names"
+        Names
+        d   4
+        b   7
+        a   -5
+        c   3
+        Name: Salary, dtype: int64
+
+        인덱스 변경
+        obj2.index = ['A', 'B', 'C', 'D']
+        A   4
+        B   7
+        C   -5
+        D   3
+        Name: Salary, dtype: int64
+
+    Data Frame
+
